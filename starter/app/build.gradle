@@ -34,15 +34,14 @@ android {
         returnDefaultValues = true
     }
 
-//    dataBinding {
-//        enabled = true
-//        enabledForTests = true
-//    }
     buildFeatures {
         dataBinding true
     }
     lintOptions {
         disable 'NullSafeMutableLiveData'
+    }
+    packagingOptions {
+        exclude "META-INF/*"
     }
 }
 
@@ -72,6 +71,10 @@ dependencies {
 
     // Koin
     implementation "io.insert-koin:koin-android:$koinVersion"
+    // Koin testing tools
+    androidTestImplementation "io.insert-koin:koin-test:$koinVersion"
+    // Needed JUnit version
+    androidTestImplementation "io.insert-koin:koin-test-junit4:$koinVersion"
 
     // Dependencies for local unit tests
     testImplementation "junit:junit:$junitVersion"
