@@ -29,7 +29,6 @@ class SaveReminderFragment : BaseFragment() {
     ): View {
         val layoutId = R.layout.fragment_save_reminder
         binding = DataBindingUtil.inflate(inflater, layoutId, container, false)
-
         setDisplayHomeAsUpEnabled(true)
         binding.viewModel = _viewModel
         return binding.root
@@ -48,9 +47,9 @@ class SaveReminderFragment : BaseFragment() {
         binding.saveReminder.setOnClickListener {
             val title = _viewModel.reminderTitle.value
             val description = _viewModel.reminderDescription.value
-            val location = _viewModel.reminderSelectedLocationStr.value
-            val latitude = _viewModel.latitude.value
-            val longitude = _viewModel.longitude.value
+            val location = _viewModel.selectedPOI.value?.name
+            val latitude = _viewModel.selectedPOI.value?.latLng?.latitude
+            val longitude = _viewModel.selectedPOI.value?.latLng?.longitude
 
             val reminderDataItem = ReminderDataItem(
                 title,
