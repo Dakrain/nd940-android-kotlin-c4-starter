@@ -85,7 +85,6 @@ class SelectLocationFragment : BaseFragment(), OnMapReadyCallback {
     }
 
     override fun onMapReady(map: GoogleMap) {
-
         this.map = map
 
         _viewModel.selectedPOI.value?.let { poi ->
